@@ -1,0 +1,59 @@
+html, body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+ul.cloud {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    line-height: 2.75rem;
+    width: 450px;
+}
+  
+ul.cloud .word {
+    --size: 4;  /* Tamanho base para as palavras */
+    color: #000659;  /* Cor azul escuro para as palavras */
+    font-size: calc(var(--size) * 0.25rem + 0.5rem); /* Calcula o tamanho da fonte */
+    display: inline-block;
+    padding: 0.125rem 0.25rem;
+    margin-right: 8px; /* Espaçamento pequeno entre as palavras */
+    transition: color 0.3s ease, transform 0.3s ease, margin-right 0.3s ease;  /* Suaviza a transição */
+}
+
+/* Ajusta o tamanho das palavras com base no peso (data-weight) */
+ul.cloud .word[data-weight="1"] { --size: 1; }
+ul.cloud .word[data-weight="2"] { --size: 2; }
+ul.cloud .word[data-weight="3"] { --size: 3; }
+ul.cloud .word[data-weight="4"] { --size: 4; }
+ul.cloud .word[data-weight="5"] { --size: 6; }
+ul.cloud .word[data-weight="6"] { --size: 8; }
+ul.cloud .word[data-weight="7"] { --size: 10; }
+ul.cloud .word[data-weight="8"] { --size: 13; }
+ul.cloud .word[data-weight="9"] { --size: 16; }
+
+/* Efeito ao passar o mouse */
+ul.cloud .word:hover {
+    color: gold;  /* Fica dourada */
+    transform: scale(1.1);  /* Aumenta o tamanho da palavra */
+    margin-right: 16px;  /* Aumenta o espaçamento entre as palavras */
+}
+
+/* Para garantir que as palavras fiquem em cores diferentes se desejado */
+ul.cloud li:nth-child(2n+1) .word { --color: #181; }
+ul.cloud li:nth-child(3n+1) .word { --color: #33a; }
+ul.cloud li:nth-child(4n+1) .word { --color: #c38; }
+
+@media (prefers-reduced-motion) {
+    ul.cloud * {
+        transition: none !important;  /* Desabilita animações se o usuário preferir */
+    }
+}
